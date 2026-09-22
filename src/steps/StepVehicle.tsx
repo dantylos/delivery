@@ -13,10 +13,10 @@ export default function StepVehicle({ selected, onSelect, onNext, onBack, direct
   return (
     <div className={direction === 'forward' ? 'animate-slide-in-right' : 'animate-slide-in-left'}>
       <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 mb-1.5 sm:mb-2">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 px-[12px] pt-2 pb-2">
           What vehicle will you use?
         </h1>
-        <p className="text-gray-500 text-sm sm:text-base">
+        <p className="text-gray-500 text-sm sm:text-base px-[12px] pt-1 pb-3">
           Pick the transport you'll deliver with
         </p>
       </div>
@@ -33,7 +33,7 @@ export default function StepVehicle({ selected, onSelect, onNext, onBack, direct
         ))}
       </div>
 
-      <div className="flex gap-3">
+      <div className="mt-8 sm:mt-10 pt-1 flex gap-3">
         <button
           id="step2-back"
           type="button"

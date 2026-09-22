@@ -64,7 +64,7 @@ export default function SelectionCard({
       {/* Label */}
       <span
         className={`
-          text-sm sm:text-base lg:text-lg font-semibold transition-colors duration-300
+          text-sm sm:text-base lg:text-lg font-semibold transition-colors duration-300 px-[12px] py-1.5
           ${isSelected ? 'text-orange-500' : 'text-gray-700 group-hover:text-gray-900'}
         `}
       >

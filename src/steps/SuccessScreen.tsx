@@ -17,10 +17,10 @@ export default function SuccessScreen() {
         <div className="absolute inset-0 w-22 h-22 sm:w-28 sm:h-28 rounded-full ring-[6px] ring-orange-100 animate-ping opacity-20" />
       </div>
 
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 mb-2 sm:mb-3">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 px-[12px] pt-2 pb-2">
         Thank you!
       </h1>
-      <p className="text-gray-500 text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-sm leading-relaxed">
+      <p className="text-gray-500 text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-sm leading-relaxed px-[12px] pt-1 pb-4">
         Your application has been submitted successfully. We'll contact you shortly to get you started.
       </p>
 

@@ -50,7 +50,7 @@ export default function App() {
     <div className="min-h-dvh flex flex-col bg-gray-50">
       <ProgressBar currentStep={step} totalSteps={TOTAL_STEPS} />
 
-      <main className="flex-1 flex items-start justify-center px-5 sm:px-8 lg:px-12 py-6 sm:py-10 lg:py-14">
+      <main className="flex-1 flex items-start justify-center px-[12px] sm:px-8 lg:px-12 py-6 sm:py-10 lg:py-14">
         <div className="w-full max-w-[540px] lg:max-w-[680px]">
           {step === 1 && (
             <StepCategory

@@ -8,19 +8,19 @@ const STEP_LABELS = ['Delivery', 'Vehicle', 'Contact'];
 export default function ProgressBar({ currentStep, totalSteps }: ProgressBarProps) {
   return (
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-[540px] lg:max-w-[680px] mx-auto px-5 sm:px-8 lg:px-0 py-3 sm:py-4">
+      <div className="w-full px-[12px] py-3 sm:py-4">
         {/* Step indicator text */}
         <div className="flex items-center justify-between mb-2.5">
-          <span className="text-xs sm:text-sm font-semibold text-gray-500 tracking-wide uppercase">
+          <span className="text-xs sm:text-sm font-semibold text-gray-500 tracking-wide uppercase px-[12px] py-1">
             Step {currentStep} of {totalSteps}
           </span>
-          <span className="text-xs sm:text-sm font-medium text-orange-500">
+          <span className="text-xs sm:text-sm font-medium text-orange-500 px-[12px] py-1">
             {STEP_LABELS[currentStep - 1]}
           </span>
         </div>
 
         {/* Progress bar track */}
-        <div className="relative h-1.5 sm:h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden w-full">
           <div
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-500 ease-out"
             style={{ width: `${(currentStep / totalSteps) * 100}%` }}
@@ -28,7 +28,7 @@ export default function ProgressBar({ currentStep, totalSteps }: ProgressBarProp
         </div>
 
         {/* Step dots */}
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between mt-2.5 px-[12px]">
           {Array.from({ length: totalSteps }, (_, i) => {
             const stepNum = i + 1;
             const isCompleted = stepNum < currentStep;
