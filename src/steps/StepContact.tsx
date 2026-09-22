@@ -41,16 +41,16 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
 
   return (
     <div className={direction === 'forward' ? 'animate-slide-in-right' : 'animate-slide-in-left'}>
-      <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight mb-2.5 sm:mb-3">
+      <div className="flex flex-col items-center text-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
           Leave your contact details
         </h1>
-        <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-md">
           We'll reach out to get you started
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6" noValidate>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6 sm:gap-7" noValidate>
         {/* Phone field */}
         <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
           <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -70,7 +70,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
               onChange={(e) => onChange('phone', e.target.value)}
               onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
               className={`
-                w-full pl-11 sm:pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-sm sm:text-base bg-white
+                w-full pl-12 sm:pl-14 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-sm sm:text-base bg-white
                 ring-1 transition-all duration-300
                 focus:outline-none focus:ring-2
                 ${phoneError
@@ -109,7 +109,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
               onChange={(e) => onChange('email', e.target.value)}
               onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
               className={`
-                w-full pl-11 sm:pl-12 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-sm sm:text-base bg-white
+                w-full pl-12 sm:pl-14 pr-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl text-sm sm:text-base bg-white
                 ring-1 transition-all duration-300
                 focus:outline-none focus:ring-2
                 ${emailError
@@ -167,7 +167,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
         </div>
 
         {/* Buttons */}
-        <div className="pt-4 sm:pt-6 flex gap-3 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+        <div className="mt-8 sm:mt-10 pt-2 flex gap-3 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
           <button
             id="step3-back"
             type="button"

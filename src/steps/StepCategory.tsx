@@ -11,16 +11,16 @@ interface StepCategoryProps {
 export default function StepCategory({ selected, onSelect, onNext, direction }: StepCategoryProps) {
   return (
     <div className={direction === 'forward' ? 'animate-slide-in-right' : 'animate-slide-in-left'}>
-      <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight mb-2.5 sm:mb-3">
+      <div className="flex flex-col items-center text-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">
           What would you like to deliver today?
         </h1>
-        <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-md">
           Choose the category that best fits your deliveries
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3.5 sm:gap-5 lg:gap-6 mb-8 sm:mb-10 lg:mb-12">
+      <div className="grid grid-cols-2 gap-3.5 sm:gap-5 lg:gap-6 mb-8 sm:mb-12">
         {CATEGORY_OPTIONS.map((option, i) => (
           <SelectionCard
             key={option.id}
@@ -32,7 +32,7 @@ export default function StepCategory({ selected, onSelect, onNext, direction }: 
         ))}
       </div>
 
-      <div className="pt-2 sm:pt-4">
+      <div className="mt-8 sm:mt-10 pt-2 sm:pt-4">
         <button
           id="step1-next"
           type="button"
