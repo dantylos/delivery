@@ -8,19 +8,19 @@ const STEP_LABELS = ['Delivery', 'Vehicle', 'Contact'];
 export default function ProgressBar({ currentStep, totalSteps }: ProgressBarProps) {
   return (
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-2xl mx-auto px-4 py-4 sm:px-6">
+      <div className="max-w-[540px] lg:max-w-[680px] mx-auto px-5 sm:px-8 lg:px-0 py-3 sm:py-4">
         {/* Step indicator text */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-semibold text-gray-500">
+        <div className="flex items-center justify-between mb-2.5">
+          <span className="text-xs sm:text-sm font-semibold text-gray-500 tracking-wide uppercase">
             Step {currentStep} of {totalSteps}
           </span>
-          <span className="text-sm font-medium text-orange-500">
+          <span className="text-xs sm:text-sm font-medium text-orange-500">
             {STEP_LABELS[currentStep - 1]}
           </span>
         </div>
 
         {/* Progress bar track */}
-        <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div className="relative h-1.5 sm:h-2 bg-gray-100 rounded-full overflow-hidden">
           <div
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-500 ease-out"
             style={{ width: `${(currentStep / totalSteps) * 100}%` }}
@@ -37,17 +37,17 @@ export default function ProgressBar({ currentStep, totalSteps }: ProgressBarProp
               <div key={stepNum} className="flex flex-col items-center">
                 <div
                   className={`
-                    w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300
+                    w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-xs font-bold transition-all duration-300
                     ${isCompleted
-                      ? 'bg-orange-500 text-white scale-100'
+                      ? 'bg-orange-500 text-white'
                       : isCurrent
-                        ? 'bg-orange-500 text-white scale-110 ring-4 ring-orange-100'
+                        ? 'bg-orange-500 text-white scale-110 ring-3 sm:ring-4 ring-orange-100'
                         : 'bg-gray-200 text-gray-400'
                     }
                   `}
                 >
                   {isCompleted ? (
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   ) : (

@@ -40,7 +40,7 @@ export default function App() {
 
   if (submitted) {
     return (
-      <div className="min-h-dvh flex items-center justify-center bg-gray-50 px-4">
+      <div className="min-h-dvh flex items-center justify-center bg-gray-50 px-5 sm:px-8">
         <SuccessScreen />
       </div>
     );
@@ -50,8 +50,8 @@ export default function App() {
     <div className="min-h-dvh flex flex-col bg-gray-50">
       <ProgressBar currentStep={step} totalSteps={TOTAL_STEPS} />
 
-      <main className="flex-1 flex items-start justify-center px-4 py-8 sm:py-12">
-        <div className="w-full max-w-lg">
+      <main className="flex-1 flex items-start justify-center px-5 sm:px-8 lg:px-12 py-6 sm:py-10 lg:py-14">
+        <div className="w-full max-w-[540px] lg:max-w-[680px]">
           {step === 1 && (
             <StepCategory
               selected={formData.category}
