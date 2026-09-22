@@ -12,16 +12,16 @@ interface StepVehicleProps {
 export default function StepVehicle({ selected, onSelect, onNext, onBack, direction }: StepVehicleProps) {
   return (
     <div className={direction === 'forward' ? 'animate-slide-in-right' : 'animate-slide-in-left'}>
-      <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 px-[12px] pt-2 pb-2">
+      <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight mb-2.5 sm:mb-3">
           What vehicle will you use?
         </h1>
-        <p className="text-gray-500 text-sm sm:text-base px-[12px] pt-1 pb-3">
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
           Pick the transport you'll deliver with
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 mb-6 sm:mb-8 lg:mb-10">
+      <div className="grid grid-cols-2 gap-3.5 sm:gap-5 lg:gap-6 mb-8 sm:mb-10 lg:mb-12">
         {VEHICLE_OPTIONS.map((option, i) => (
           <SelectionCard
             key={option.id}
@@ -33,7 +33,7 @@ export default function StepVehicle({ selected, onSelect, onNext, onBack, direct
         ))}
       </div>
 
-      <div className="mt-8 sm:mt-10 pt-1 flex gap-3">
+      <div className="pt-2 sm:pt-4 flex gap-3 sm:gap-4">
         <button
           id="step2-back"
           type="button"

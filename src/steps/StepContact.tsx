@@ -20,7 +20,7 @@ function validateEmail(email: string): string | null {
 function validatePhone(phone: string): string | null {
   if (!phone.trim()) return 'Phone number is required';
   // Accept: +1234567890, (123) 456-7890, 123-456-7890, 1234567890 (7-15 digits)
-  const digitsOnly = phone.replace(/[\s\-\(\)\+]/g, '');
+  const digitsOnly = phone.replace(/[\s\-()+]/g, '');
   if (digitsOnly.length < 7 || digitsOnly.length > 15) return 'Phone number must be 7–15 digits';
   if (!/^\d+$/.test(digitsOnly)) return 'Phone number must contain only digits';
   return null;
@@ -41,19 +41,19 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
 
   return (
     <div className={direction === 'forward' ? 'animate-slide-in-right' : 'animate-slide-in-left'}>
-      <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 px-[12px] pt-2 pb-2">
+      <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight mb-2.5 sm:mb-3">
           Leave your contact details
         </h1>
-        <p className="text-gray-500 text-sm sm:text-base px-[12px] pt-1 pb-3">
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
           We'll reach out to get you started
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6" noValidate>
         {/* Phone field */}
         <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
-          <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 px-[12px] pt-1 pb-1.5">
+          <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
             Phone number
           </label>
           <div className="relative">
@@ -81,7 +81,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
             />
           </div>
           {phoneError && (
-            <p className="mt-1.5 px-[12px] py-0.5 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+            <p className="mt-1.5 text-xs sm:text-sm text-red-500 flex items-center gap-1">
               <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
@@ -92,7 +92,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
 
         {/* Email field */}
         <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-          <label htmlFor="email" className="block text-sm font-semibold text-gray-700 px-[12px] pt-1 pb-1.5">
+          <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
             Email address
           </label>
           <div className="relative">
@@ -120,7 +120,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
             />
           </div>
           {emailError && (
-            <p className="mt-1.5 px-[12px] py-0.5 text-xs sm:text-sm text-red-500 flex items-center gap-1">
+            <p className="mt-1.5 text-xs sm:text-sm text-red-500 flex items-center gap-1">
               <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
@@ -130,8 +130,8 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
         </div>
 
         {/* Terms checkbox */}
-        <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-          <label htmlFor="agreed" className="flex items-start gap-2.5 sm:gap-3 cursor-pointer group py-1.5 px-[12px]">
+        <div className="animate-fade-in-up pt-1" style={{ animationDelay: '200ms' }}>
+          <label htmlFor="agreed" className="flex items-start gap-3 cursor-pointer group py-1">
             <div className="relative mt-0.5">
               <input
                 id="agreed"
@@ -157,7 +157,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
                 )}
               </div>
             </div>
-            <span className="text-xs sm:text-sm text-gray-600 leading-snug py-0.5">
+            <span className="text-xs sm:text-sm text-gray-600 leading-snug">
               I agree to the{' '}
               <span className="text-orange-500 font-semibold hover:underline">Terms of Service</span>
               {' '}and{' '}
@@ -167,7 +167,7 @@ export default function StepContact({ phone, email, agreed, onChange, onSubmit, 
         </div>
 
         {/* Buttons */}
-        <div className="mt-8 sm:mt-10 pt-2 flex gap-3 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+        <div className="pt-4 sm:pt-6 flex gap-3 sm:gap-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
           <button
             id="step3-back"
             type="button"

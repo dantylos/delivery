@@ -13,6 +13,12 @@ export default function SelectionCard({
   onSelect,
   animationDelay = 0,
 }: SelectionCardProps) {
+  const imageSrc = option.image.startsWith('http')
+    ? option.image
+    : option.image.startsWith(import.meta.env.BASE_URL)
+      ? option.image
+      : `${import.meta.env.BASE_URL}${option.image.replace(/^\//, '')}`;
+
   return (
     <button
       id={`card-${option.id}`}
@@ -52,9 +58,9 @@ export default function SelectionCard({
       </div>
 
       {/* Card image */}
-      <div className="w-16 h-16 sm:w-22 sm:h-22 lg:w-28 lg:h-28 mb-2.5 sm:mb-3 flex items-center justify-center overflow-hidden rounded-xl">
+      <div className="w-16 h-16 sm:w-22 sm:h-22 lg:w-28 lg:h-28 mb-2 sm:mb-3 flex items-center justify-center overflow-hidden rounded-xl">
         <img
-          src={option.image}
+          src={imageSrc}
           alt={option.label}
           className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
           loading="lazy"
@@ -64,7 +70,7 @@ export default function SelectionCard({
       {/* Label */}
       <span
         className={`
-          text-sm sm:text-base lg:text-lg font-semibold transition-colors duration-300 px-[12px] py-1.5
+          text-sm sm:text-base lg:text-lg font-semibold transition-colors duration-300 px-2 py-0.5
           ${isSelected ? 'text-orange-500' : 'text-gray-700 group-hover:text-gray-900'}
         `}
       >
